@@ -69,13 +69,11 @@ if __name__ == '__main__':
     # personas_actualizadas = PersonaDAO.actualizar(persona1)
     # log.debug(f'Personas actualizadas: {personas_actualizadas}')
 
-
     # Insertar un registro
     # persona1 = Persona(nombre='Omero', apellido='Ramos', email='omeror@mail.com')
     # personas_insertadas = PersonaDAO.insertar(persona1)
     # log.debug(f'Personas insertadas: {personas_insertadas}')
 
-i
     # Seleccionar objetos
     personas = PersonaDAO.seleccionar()
     for persona in personas:
