@@ -1,5 +1,5 @@
-from capa_datos_persona.Usuario import Usuario
-from capa_datos_persona.cursor_del_pool import CursorDelPool
+from Usuario import Usuario
+from cursor_del_pool import CursorDelPool
 from logger_base import log
 
 class UsuarioDAO:
@@ -9,7 +9,7 @@ class UsuarioDAO:
     '''
 
     _SELECT = 'SELECT * FROM usuario ORDER BY id_usuario'
-    _INSERTAR = 'INSERT INTO usuario(username, password) VALUE (%s, %s)'
+    _INSERTAR = 'INSERT INTO usuario(username, password) VALUES (%s, %s)'
     _ACTUALIZAR = 'UPDATE usuario SET username=%s, password=%s WHERE id usuario=%s'
     _ELIMINAR = 'DELETE FROM usuario WHERE id usuario=%s'
 
