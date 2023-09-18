@@ -1,4 +1,4 @@
-
+import math
 # Profundizando en el tipo String
 # Concatenacion automatica en Python
 
@@ -9,4 +9,4 @@ mensaje += ', Terminamos'
 # print(mensaje)
 
 # Usamos la clase help para ayuda o documentación (built-in)
-help(str)
+help(math.isnan)
