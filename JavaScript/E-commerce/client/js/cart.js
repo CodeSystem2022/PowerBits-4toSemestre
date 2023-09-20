@@ -30,6 +30,7 @@ const displayCart = () => {
     modalContainer.append(modalHeader);
 
     //modal body
+    if (cart.length > 0){
     cart.forEach((product)=>{
         const modalBody = document.createElement("div");
         modalBody.className = "modal-body"
@@ -72,7 +73,7 @@ const displayCart = () => {
 
     });
 
-    //Modal fatter
+    //Modal fotter
     const total = cart.reduce((acc, el) => acc + el.price * el.quanty, 0);
 
     const modalFooter = document.createElement("div");
@@ -82,6 +83,12 @@ const displayCart = () => {
     `;
         
     modalContainer.append(modalFooter);
+}else {
+  const modalText = document.createElement("h2");
+  modalText.className = "modal-body";
+  modalText.innerText = "Your cart is empty";
+  modalContainer.append(modalText);
+}
 };
 
     
