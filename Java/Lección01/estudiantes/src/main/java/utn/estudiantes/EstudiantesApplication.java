@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import utn.estudiantes.modelo.Estudiantes2022;
 import utn.estudiantes.servicio.EstudianteServicio;
 
+import java.util.List;
 import java.util.Scanner;
 
 @SpringBootApplication
@@ -48,9 +50,18 @@ public class EstudiantesApplication implements CommandLineRunner {
                 5. Eliminar Estudiante
                 6. Salir
                 Eliga una opción:""");
+    }
 
-
-        );
-
+    private boolean ejecutarOpciones(Scanner consola){
+        var opcion = Integer.parseInt(consola.nextLine());
+        var salir = false;
+        switch (opcion){
+            case 1 -> { //Listar estudiantes
+                logger.info(nl+"Listado de estudiantes: "+nl);
+                List<Estudiantes2022> estudiantes = estudianteServicio.listarEstudiantes();
+                estudiantes.forEach((estudiante -> logger.info(estudiante.toString()+nl)));
+            }
+        }//Fin del switch
+        return salir;
     }
 }
