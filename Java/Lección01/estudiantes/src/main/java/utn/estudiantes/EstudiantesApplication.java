@@ -40,7 +40,7 @@ public class EstudiantesApplication implements CommandLineRunner {
     }
 
     private void mostrarMenu(){
-        logger.info(nl);
+        //logger.info(nl);
         logger.info("""
                 ******* Sistema de Estudiantes *******
                 1. Listar Estudiantes
@@ -118,7 +118,25 @@ public class EstudiantesApplication implements CommandLineRunner {
                 else{
                     logger.info("Estudiante NO encontrado con el id: "+idEstudiante+nl);
                 }
-            }
+	 	case 5 -> {//Eliminar estudiante
+		    logger.info("Eliminar estudiante: "+nl);
+		    logger.info("Digite el id estudiante: ");
+		    var idEstudiante = Integer.parseInt(consola.netLine());
+		    // Buscamos el id estudiante a eliminar
+		    var estudiante = estudianteServicio.buscarEstudiantePorId(idEstudiante);
+		    if(estudiante != null){
+			    estudianteServicio.eliminarEstudiante(estudiante);
+			    logger.info("Estudiante eliminado: "+estudiante+nl);
+		}
+		 else
+		    logger.info("Estudiante NO encontrado con id: "+estudiante+nl);
+	        }
+		case 6 -> { //Salir
+			logger.info("Hasta pronto!"+nl+nl);
+			salir = true;
+	        }
+	    	default -> logger.info("Opcion no reconocida: "+opcion+nl);	
+		}	
         }//Fin del switch
         return salir;
     }
