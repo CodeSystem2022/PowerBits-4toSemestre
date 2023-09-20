@@ -2,6 +2,7 @@ const modalContainer = document.getElementById("modal-container");
 const modalOverlay = document.getElementById("modal-overlay");
 
 const cartBtn = document.getElementById("cart-btn");
+const cartCounter = document.getElementById("cart-counter");
 
 
 const displayCart = () => {
@@ -90,4 +91,15 @@ const deleteCartProduct = (id) => {
     const foundId = cart.findIndex((element)=> element.id === id);
     cart.splice(foundId, 1);
     displayCart();
-}
+    displayCartCounter();
+};
+
+const displayCartCounter = () => {
+    const cartLength = cart.reduce((acc, el) => acc + el.quanty, 0);
+    if (cartLength >0) {
+      cartCounter.style.display = "block";
+      cartCounter.innerText = cartLength;
+    } else {
+      cartCounter.style.display = "none";
+    }
+};
