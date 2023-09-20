@@ -61,6 +61,37 @@ public class EstudiantesApplication implements CommandLineRunner {
                 List<Estudiantes2022> estudiantes = estudianteServicio.listarEstudiantes();
                 estudiantes.forEach((estudiante -> logger.info(estudiante.toString()+nl)));
             }
+            case 2 -> {  //Buscar estudiante por Id
+                logger.info("Digite el id del estudiante a buscar: ");
+                var idEstudiante = Integer.parseInt(consola.nextLine());
+                Estudiantes2022 estudiante =
+                        estudianteServicio.buscarEstudiantePorId(idEstudiante);
+                if(estudiante != null){
+                    logger.info("Estudiante encontrado: "+estudiante+nl);
+                }
+                else{
+                    logger.info("Estudiante NO encontrado: "+estudiante+nl);
+                }
+            }
+            case 3 -> {  //Agregar estudiante
+                logger.info("Agregar estudiante: "+nl);
+                logger.info("Nombre: "+nl);
+                var nombre = consola.nextLine();
+                logger.info("Apellido: "+nl);
+                var apellido = consola.nextLine();
+                logger.info("Telefono: "+nl);
+                var telefono = consola.nextLine();
+                logger.info("Email: "+nl);
+                var email = consola.nextLine();
+                //Crear el objeto estudiangte sin el id
+                var estudiante = new Estudiantes2022();
+                estudiante.setNombre(nombre);
+                estudiante.setApellido(apellido);
+                estudiante.setTelefono(telefono);
+                estudiante.setEmail(email);
+                estudianteServicio.guardarEstudiante(estudiante);
+                logger.info("Estudiante agregado: "+estudiante+nl);
+            }
         }//Fin del switch
         return salir;
     }
