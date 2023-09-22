@@ -13,7 +13,7 @@ mercadopago.configure({
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "../client/media")));
+app.use(express.static(path.join(__dirname, "../client")));
 app.use(cors());
 
 app.get("/", function () {

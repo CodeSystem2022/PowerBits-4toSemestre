@@ -80,9 +80,18 @@ const displayCart = () => {
     modalFooter.className = "modal-footer"
     modalFooter.innerHTML = `
     <div class="total-price">Total: ${total}</div>
+    <button class="btn-primary" id="checkout-btn"> go to checkout</button>
+    <div id="button-checkout"></div>
     `;
         
     modalContainer.append(modalFooter);
+    // mp;
+    const mercadopago = new MercadoPagoResponse("public_key", {
+        locale: "es-AR", //The most common are: 'pt-BR', 'es-AR' and 'es-US'
+    });
+
+    const checkoutButton = modalFooter.querySelector("#checkout-btn");
+
 }else {
   const modalText = document.createElement("h2");
   modalText.className = "modal-body";
