@@ -88,7 +88,7 @@ const displayCart = () => {
         
     modalContainer.append(modalFooter);
     // mp;
-    const mercadopago = new MercadoPagoResponse("public_key", {
+    const mercadopago = new MercadoPagoResponse("TEST-1a038b41-3933-4f48-a71a-40c74c26a881", {
         locale: "es-AR", //The most common are: 'pt-BR', 'es-AR' and 'es-US'
     });
 
