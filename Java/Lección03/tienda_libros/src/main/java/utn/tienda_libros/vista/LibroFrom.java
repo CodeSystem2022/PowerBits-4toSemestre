@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import utn.tienda_libros.servicio.LibroServicio;
 
 import javax.swing.*;
-import javax.awt.*;
+import java.awt.*;
 
 @Component
 public class LibroFrom extends JFrame {
@@ -27,7 +27,8 @@ public class LibroFrom extends JFrame {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension tamanioPantalla = toolkit.getScreenSize();
         int x = (tamanioPantalla.width - getWidth()/2);
-        int y = (tamanioPantalla.heigth - getHeigth()/2);
+        int y = (tamanioPantalla.height - getHeight()/2);
         setLocation(x, y);
     }
+    
 }
