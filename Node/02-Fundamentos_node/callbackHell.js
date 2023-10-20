@@ -18,18 +18,26 @@ function adios(nombre, otroCallback){
         otroCallback;
     }, 1500);
 }
+
+function conversacion(nombre, veces, callback){
+    hablar(function () {
+        conversacion();
+    })
+}
+
 //--Proceso principal
 console.log('Iniciando el preceso...');
-hola('Carlos', function(nombre){
-    hablar( function() {
-        hablar( function(){
-            hablar( function(){
-                hablar( function(){
-                    adios(nombre, function(){
-                        console.log('Terminando el proceso...');
-                    });
-                });
-            });
-        });
-    })
-});
+hola('Ariel', adios)
+//hola('Carlos', function(nombre){
+//    hablar( function() {
+//        hablar( function(){
+//            hablar( function(){
+//                hablar( function(){
+//                    adios(nombre, function(){
+//                        console.log('Terminando el proceso...');
+//                    });
+//                });
+//            });
+//        });
+//    })
+//});
