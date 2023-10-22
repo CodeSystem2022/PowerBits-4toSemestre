@@ -26,12 +26,17 @@ public class LibroFrom extends JFrame {
     public LibroFrom(LibroServicio libroServicio){
         this.libroServicio = libroServicio;
         iniciarForma();
-        agregarButton.addActionListener(e -> {
-
-        });
+        agregarButton.addActionListener(e -> agregarLibro());
     }
 
-    private void iniciarForma(){
+    private void iniciarForma(){...}
+
+    private void agregarLibro(){
+        //Leer los valores del formulario
+        if(libroTexto.getText().equals("")){
+            mostrarMensaje("Ingresa el nombre del libro");
+        }
+        
         setContentPane(panel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
