@@ -43,12 +43,24 @@ public class LibroFrom extends JFrame {
         var precio = Double.parseDouble(precioTexto.getText());
         var existencias = Integer.parsInt(existenciasTexto.getText());
         //Creamos el objeto del libro
-        var libro = new Libro();
-        libro.setNombreLibro(nombreLibro);
-        libro.setAutor(autor);
-        libro.setPrecio(precio);
-        libro.setExistencias(existencias);
+        var libro = new Libro(null, nombreLibro, autor, precio, existencias);
+        //libro.setNombreLibro(nombreLibro);
+        //libro.setAutor(autor);
+        //libro.setPrecio(precio);
+        //libro.setExistencias(existencias);
+        this.libroServicio.guardarLibro(libro);
+        mostrarMensaje("Se agrego el libro...");
+        limpiarFormulario();
+        listarLibros();
     }
+
+    private void limpiarFormulario(){
+        libroTexto.setText("");
+        autorTexto.setText("");
+        precioTexto.setText("");
+        existenciasTexto.setText("");
+    }
+
 
         setContentPane(panel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
