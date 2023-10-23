@@ -31,12 +31,25 @@ public class LibroFrom extends JFrame {
 
     private void iniciarForma(){...}
 
-    private void agregarLibro(){
+    private void agregarLibro() {
         //Leer los valores del formulario
-        if(libroTexto.getText().equals("")){
+        if (libroTexto.getText().equals("")) {
             mostrarMensaje("Ingresa el nombre del libro");
+            libroTexto.requesFocusInWindow();
+            return;
         }
-        
+        var nombreLibro = libroTexto.getText();
+        var autor = autorTexto.getText();
+        var precio = Double.parseDouble(precioTexto.getText());
+        var existencias = Integer.parsInt(existenciasTexto.getText());
+        //Creamos el objeto del libro
+        var libro = new Libro();
+        libro.setNombreLibro(nombreLibro);
+        libro.setAutor(autor);
+        libro.setPrecio(precio);
+        libro.setExistencias(existencias);
+    }
+
         setContentPane(panel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -47,6 +60,10 @@ public class LibroFrom extends JFrame {
         int x = (tamanioPantalla.width - getWidth()/2);
         int y = (tamanioPantalla.height - getHeight()/2);
         setLocation(x, y);
+    }
+
+    private void mostrarMensaje(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje);
     }
 
     private void createUIComponents() {
