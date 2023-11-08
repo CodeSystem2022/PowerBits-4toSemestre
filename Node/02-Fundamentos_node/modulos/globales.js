@@ -15,6 +15,21 @@
 //Da prioridad de ejecución a una funcion asincronica
 //setImmdiate(() => {});
 
-console.log(setInterval)
+//console.log(setInterval)
 
+let i = 0;
+let intervalo = setInterval(() => {
+    console.log('Hola');
+    if (i === 3) {
+        clearInterval(intervalo); //Detenemos la función
+    }
+    i++;
+}, 1000); 
 
+setImmediate(() => {
+    console.log('Saludo inmediato')
+});
+
+//requiere();
+
+console.log(__filename);
